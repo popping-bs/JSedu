@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 기본: 변수</title>
+</head>
+<body>
+    let 변수 ; 블록 scope, windows의 속성으로 추가 되지 않음, 중복선언 불가능<br>
+    var 변수 ; 함수 scope, window의 속성으로 추가 됨(전역), 호이스팅문제, 중복선언 가능 <br>
+    const 변수; 상수선언, 반드시 초기화 필요, 변경 불가<br>
+    <script>
+        f(); // 호이스팅 덕분에 f호출이 맨앞에 있어도, 자바스크립트가 읽어서 위로 끌어올림
+        //f2(); // 변수는 호이스팅이 되긴 되지만, 실제 할당은 원래 위치쪽에 있어서 문제가 발생.
+        const SUCCESS = true ; //초기화 하지 않으면 오류 발생.
+        document.writeln(SUCCESS+"<BR>");
+        //SUCCESS = false ;
+        console.dir(window);
+        console.dir(this);
+        var globalVar =100;
+        let localVar ="let으로 선언되는 변수"
+
+
+        {
+            var local = "block";
+            let local2 = "block scope";
+        }
+        
+        document.writeln(typeof(local)+ "<br>")
+        //document.writeln((local2)+ "<br>") //reference Error
+        function f() {
+            var functionVar = "function scope"; //함수 내에서 var 선언하면 local 변수?
+            globalVar2 = "window의 속성으로 추가 됨" // var선언 없이 변수 선언하면 함수 호출시 global?
+            document.writeln("f()함수가 호출 됨<br>")
+        };
+        //document.writeln(functionVar +"<br>"); //reference Error
+    
+        let f2 = function(){
+            document.writeln("f2()함수가 호출 됨<br>")
+        }
+
+        var globalVar =200;
+        let localVar ="let으로 선언되는 변수"; //let 은 중복 선언 불가능.
+
+    </script>
+</body>
+</html>
