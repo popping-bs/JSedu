@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript 기본: 함수</title>
+</head>
+<body>
+    함수의 인수(파라미터)로 함수(기능)를 전달 할 수 있습니다 <br>
+    callback function: 다른 함수에 인자로 전달되는 함수로서 특정 이벤트 또는 <br>
+    조건이 발생했을때 호출해서 실행시키기 위해 전달되는 함수<br>
+    예] 이벤트 처리, http 요청에 대한 응답을 처리 하는 함수, window.setInterval(fm millisecond)
+    함수 내부에 함수를 정의할 수 있습니다.<br>
+
+    <script>
+        function caller(param){
+            for (let i=0; i<5; i++){
+                param(i);
+            }
+        }
+
+        function callee(p){
+            alert(`I'm function: ${p}`)
+        }
+
+        //caller(callee);
+
+        //caller( (m) => { alert(`I'm function: ${m}`)});
+
+
+    </script>
+    <script src="park.js"></script>
+    <script src="kim.js"></script>
+    <script>
+        document.write("피타고라스 빗변의 길이:" + pythagoras(3,4)+ "<br>")
+        document.write(square(3,5)+ "<br>")
+        //함수 이름 충돌.. kim의 square 함수가 overwrite 되면서 pythagoras에서 호출하는 square 문제.
+    </script>
+
+    <script>
+        let x = "전역변수";
+        function outer(){
+            let local = "로컬변수";
+            let x = "outer.x";
+            function inner(){
+                let innerLocal= "내부함수의 로컬 함수";
+                let x = "inner.x";
+                alert(innerLocal + "," + x + "," + local);
+            }
+            inner();
+            alert("from outer:" + x + "," + local);
+        }
+        outer();
+
+        alert(x);
+    </script>
+
+<h3>타이머 설정에 따라 실행되는 callback 함수 실습</h3>
+<div id="timer"></div>
+<button id="stop">Stop</button>
+<script>
+    window.onload = function(){
+        let div1 = document.getElementById("timer");
+        let intervalID = setInterval(()=>{
+            div1.innerHTML = new Date()
+            }, 1000);
+    
+    let btn = document.getElementById("stop");
+    btn.onclick = function(){
+        window.clearInterval(intervalID);
+    }
+
+    };
+</script>
+
+</body>
+</html>

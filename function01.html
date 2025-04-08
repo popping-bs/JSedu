@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java script 기본: 함수</title>
+
+</head>
+<body>
+    함수적 프로그래밍 언어: <br>
+    함수를 객체로 취급함 <br>
+    함수를 변수에 할당할 수 있습니다. <br>
+    함수의 인수로 함수(기능)를 전달할 수 있습니다. <br>
+    함수 내부에서 함수 정의를 리턴할 수 있습니다.<br>
+    <hr>
+    함수 종류 : <br>
+    선언적 함수 - function 키워드와 이름으로 선언 & 정의되는 함수 <br>
+    익명 함수 - function 키워드를 사용해서 이름 없이 선언 & 정의 되는 함수 <br>
+    즉시 실행 함수 (함수 표현식) - 함수를 (표현식)으로 선언 및 정의하고 즉시 실행하는 함수. 1회성으로 app의 초기화 수행으로 적합.
+    화살표 함수 - function 키워드 선언 x, 이름 선언 x <br>
+    선언적 함수는 먼저 호출되고, 나중에 정의 되더라도 hoisting 됩니다.<br>
+    변수에 저장된 익명함수는 변수만 hoisting 되고, 실제 할당은 할당이 이루어진 위치에서 수행 되기 때문에 선 호출 후 정의인 경우 오류 발생 <br> 
+    <pre>
+        //선언적 함수
+        function f() {
+
+        }
+        //익명 함수
+        let g = function() {
+
+        }
+        //즉시 실행 함수
+        (function() {}) ();
+
+        //화살표 함수
+        () => 값을 리턴하는 표현식 문장;
+        () => { }
+
+    </pre>
+
+    <script>
+        f();
+        //g(); // 익명함수는 선 선언 불가능.
+        function f(){
+            alert("선언적 함수");
+        }
+
+        let g = function(){
+            alert("익명 함수")
+        }
+        g();
+        
+        (()=> {
+            alert("화살표 함수")
+        })();
+
+        (function() {
+            alert("즉시 실행 함수")
+        })(); 
+
+        console.log(this);
+
+    </script>
+    선언적 함수는 전역 객체(window,global)에 추가 됨 (전역함수) <br>
+</body>
+</html>
