@@ -1,0 +1,48 @@
+CSS
+1. inline 방식: style 속성으로 정의
+2. html 문서 내부에 <style>로 정의
+3. <link> 사용해서 외부 (.css)을 연결
+
+
+selector {
+    property : value1 value2;
+    property : value3;
+    ....
+}
+
+selector 에는 태그명, i#id속성값, .class속성값, *, 부모 > 자식 , 부모 자손
+        [속성명], [속성=값], [속성*=값], [속성|=], [속성^=값], [속성$=값]
+        :checked, :focus, ::가상selector
+
+
+css의 property 값을 선언할 때 siz 관련된 값은 단위를 함께 선언합니다.
+css의 property 값을 선언할 때 color 관련 된 값은 #RGB, #RGBR
+#ffffff, #fff, white, black, rgb(n,n,n), rgba(n, n, n, n)
+
+CSS는 모든 html요소에 style을 적용 할때 Box Model를 사용하여 적용.
+
+content - padding - border영역- margin -border영역 - padding - content
+
+---------------------------------------------------------------------------
+
+javascript 
+window.prompt(message, defaultvalue)  : string
+winodw.confirm(message) : boolean
+readline모듈, createInterface(), interface.question()
+
+javascript 출력:
+document.write()
+console.log()
+
+javascript 자료형:
+string, number, boolean, undefined, object, function, bigint, Symbol
+
+변수 선언:
+var 변수 - 동일 변수명으로 중복선언 가능, 함수 scope, window 전역 객체(global)의 멤버 속성으로 추가, hosting 됩니다
+let 변수 - 동일 변수명으로 중복선언 x, 블럭 scope, window 전역 객체(global)의 멤버 속성으로 추가 x,
+const 상수 - 반드시 초기화, 변경 불가
+
+javascipt 주석: //, /*, ~*/
+html 주석: <!-- 주석 --!>
+css 주석: /* ~*/
+
