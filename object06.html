@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON객체를 직렬화, 역직렬화 실습</title>
+    <script>
+        let todos = [];
+        window.onload=function(){
+            const stored = sessionStorage.getItem("todos");
+            if(stored) {
+                todos = JSON.parse(stored);  //직렬화 -> JSON객체 변환
+                renderTodos();
+            }
+        };
+
+        function renderTodos(){
+            const ul = document.getElementById("todoList");
+            ul.innerHTML="";
+            todos.forEach(todo=>{
+                const li = document.createElement("li");
+                li.textContent = todo.text;
+
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "수정";
+                //editBtn.onclick = editTodo(todo.id);
+
+                const delBtn = document.createElement("button");
+                delBtn.textContent = "삭제";
+                delBtn.onclick = () => { delTodo(todo.id)};
+
+                li.appendChild(editBtn);
+                li.appendChild(delBtn);
+                ul.appendChild(li);
+            })
+        }
+        
+        function editTodo(id){
+            const newText = prompt("수정할 내용을 입력하세요");
+            if(newText === null) return;
+
+            todos.find(t=>t.id===id);
+            if(todo){
+                todo.text = newText;
+                saveAndRender();
+            }
+        }
+
+        function addTodo(){
+            const input = document.getElementById("todoInput");
+            const txt = input.value.trim();
+            if (txt ==="") return
+
+            todos.push({id:Date.now(), text:txt});
+            input.value="";
+            saveAndRender();
+        }
+
+        function saveAndRender(){
+            sessionStorage.setItem("todos", JSON.stringify(todos));
+            renderTodos();
+        }
+
+        function delTodo(id){
+            todos = todos.filter(t=>t.id !=id );
+            saveAndRender();
+        }
+
+    </script>
+</head>
+<body>
+    <h2> Todo List</h2> 
+    <input type="text" id="todoInput" placeholder="해야 할 일 입력하세요">
+    <button onclick="addTodo()">추가 </button>
+    <ul id="todoList"></ul>
+</body>
+</html>
