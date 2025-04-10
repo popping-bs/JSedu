@@ -24,27 +24,16 @@
 
                 const editBtn = document.createElement("button");
                 editBtn.textContent = "수정";
-                //editBtn.onclick = editTodo(todo.id);
+                editBtn.onclick = editTodo(todo.id);
 
                 const delBtn = document.createElement("button");
                 delBtn.textContent = "삭제";
-                delBtn.onclick = () => { delTodo(todo.id)};
+                delBtn.onclick = delTodo(todo.id);
 
                 li.appendChild(editBtn);
                 li.appendChild(delBtn);
                 ul.appendChild(li);
             })
-        }
-        
-        function editTodo(id){
-            const newText = prompt("수정할 내용을 입력하세요");
-            if(newText === null) return;
-
-            todos.find(t=>t.id===id);
-            if(todo){
-                todo.text = newText;
-                saveAndRender();
-            }
         }
 
         function addTodo(){
@@ -65,6 +54,7 @@
         function delTodo(id){
             todos = todos.filter(t=>t.id !=id );
             saveAndRender();
+
         }
 
     </script>

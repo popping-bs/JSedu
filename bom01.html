@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+    <script>
+        function getLocation() {
+    let p = document.getElementById("status");
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude; // 오타 수정
+            p.textContent = `위치 : 위도 ${latitude}, 경도 ${longitude}`;
+        }, 
+        (error) => {
+            p.textContent = `에러 코드: ${error.code}`;
+        }, 
+        {
+            enableHighAccuracy: true, // 오타 수정
+            timeout: 10000,
+            maximumAge: 0
+        }
+    ); 
+    }
+    </script>
+</head>
+<body>
+    Navigator 객체는 브라우저 정보 제공 <br>
+    <script>
+        console.log(navigator.cookieEnabled);
+        console.log(navigator.language);
+        console.log(navigator.onLine);
+        console.log(navigator.userAgent);
+    </script>
+    navigator.geolocation 는 위치 정보(위도, 경도, ) 제공<br>
+    getCurrentLocation(), watchPosition(), clearWatch <br>
+    <h2>현재 위치 정보</h2>
+    <button onclick ="getLocation();"> 위치 정보 가져 오기</button>
+    <p id="status"></p>
+    <hr>
+    SPA(Single Page Application) 개발 시 유용한 객체 history는 브라우저의 user가 방문했었던 페이지 목록 저장 이동 메서드 제공 <br>
+    
+</body>
+</html>

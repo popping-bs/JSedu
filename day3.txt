@@ -1,0 +1,36 @@
+javascript 이벤트 관련 특성:
+element에서 발생하는 이벤트는 ' on 이벤트 = 이벤트핸들러 함수 (event 객체 )' 로 처리 방법
+w3 표준에서는 element에서 발생하는 이벤트에 여러 이벤트 헨들러 함수를 등록해서 처리 할 수 있음.
+element.addEventListener ("이벤트", 이벤트핸들러함수, fasle);
+element.removeEventListener("이벤트", 이벤트핸들러함수);
+
+Browser가 이벤트 전파 기본 방식: child element -> parent element 전파, event bubling
+event bubbling을 중단 시키려면 event.stoppropagation(); 사용
+
+element에서 발생하는 이벤트에 대해 1번만 동작하는 이벤트 헨들러 등록:
+element.addEventListener("이벤트", function(){
+    //이벤트 처리 코드
+    element.on이벤트 = null;
+
+}, false)
+
+브라우저의 처리 기본 이벤트 : 예 ] form 태그의 submit 이벤트 ,<a> 태그의 click 이벤트 등
+브라우저의 처리 기본 이벤트 취소 방법:
+1. event 객체의 preventDefault(); 
+2. 이벤트 핸들러 함수에서 return fasle;
+
+----------------
+BOM(Browser Object Model)
+window(Window) :: 브라우저의 전역 객체
+-- alert(), prompt(), confirm(), setInterval(),
+clearInterval(), open(), close(), onXXXXX, document, navigator, location, screen, ....
+
+screen: 브라우저별로 화면 속성이 서로 다르기 때문에, 운영체제와 관련 screen 속성 제공
+location: html페이지 이동, 새로고침등의 기능 제공, href속성, assing(),reload(),
+replace(), location = location, url관련 추출.
+
+cors (cross origin resource sharing): 웹의 기본 보안 정책.
+
+통신 중인 웹 서버(a서버)외에 다른 웹서버(b 서버) 또는 다른 도메인(c 도메인)의 html 페이지와 resource를 공유할 수 없음.
+
+
