@@ -1,0 +1,39 @@
+document html 문서, dom tree에서 ㄱㅏ장먼저 생성 되는 객체
+요소를 선택하는 메서드: getElementByID(), getElementsByTagName(), querySelector()
+
+
+createElemnet()로 생성된 element를 parent노드.appendChild() 또는 노드.append()
+element.속성 = 값  또는 element.setAttribute('속성', 'value')
+getAttribute("속성)
+
+element 삭제는 parent노드.removeChild(삭제할 노드)노드.remove()
+---------------------------------------------------------------
+
+함수 또는 클래스를 파일에 저장해서 재사용 할 수 있는 모듈 지원 (ES6)
+
+--파일 내보내기
+export {함수이름, 클래스이름, 변수이름};
+export default 객체;
+
+--모듈 불러오기
+import {함수이름, 클래스이름, 변수이름} from 경로/파일.js
+import 객체 from 경로/파일.js
+
+동적으로 모듈 불러오기 : import()
+
+html에서 모듈 사용하려면 <script type = "module" , src =""0>
+
+--서버에 요청과 응답을 비동기 처리하는 XMLHttpRequest 
+XMLHttpRequest.readyState = 0, 1, 2 ,3 ,4
+new XMLHttpRequest();
+open(method, url, true);
+setRequestHeader(key, value) ; -- 필요하면 설정
+send()
+responseText, reponseXML 속성에 응답 데이터 저장.
+onreadystatachange = Callback; --dom api를 사용해서 페이지 부분 갱신.
+httpStatus = 
+
+--------------------------
+비동기 작업 file.txt 읽어서 result.txt. 파일 기록
+비동기 작업 file2.task 읽어서 result.append 후
+비동기 작업 file3.task 읽어서 result.append 
